@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .bg-charcoal {
+    background-color: #353535;
+  }
+
+  .border-charcoal {
+    border-color: #353535;
+  }
+
+  .text-charcoal {
+    color: #353535;
+  }
+}
+
+.hide-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.hover-lift {
+  @apply shadow-lg hover:shadow-xl transform transition duration-300 ease-in-out hover:scale-105;
+}
