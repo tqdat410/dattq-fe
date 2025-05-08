@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import daImg from "../../assets/bamboo tree-bro.png";
 import DownloadIcon from "@mui/icons-material/Download";
 import PhoneCallbackIcon from "@mui/icons-material/PhoneCallback";
@@ -6,36 +6,14 @@ import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
 import { Link } from "@mui/material";
 import LoginPopup from "./LoginPopup";
 import EditModalManager from "./EditModalManager";
-import { getCvUrl } from "../../services/cvService";
 
-const HomeSection: React.FC = () => {
+interface HomeSectionProps {
+  data: string;
+}
+
+const HomeSection: React.FC<HomeSectionProps> = ({ data }) => {
   const [showLogin, setShowLogin] = useState(false);
   const [loginSuccess, setLoginSuccess] = useState(false);
-  const [cvLink, setCvLink] = useState<string>("");
-
-  useEffect(() => {
-    const fetchCvUrl = async () => {
-      try {
-        // Log kết quả trả về để kiểm tra
-        const data = await getCvUrl();
-        console.log("Data from getCvUrl:", data); // Kiểm tra data trả về
-        if (data) {
-          setCvLink(data); // Set cvLink nếu data tồn tại
-        } else {
-          console.error("No data returned from API");
-        }
-      } catch (error) {
-        console.error("Failed to fetch CV link:", error);
-      }
-    };
-
-    fetchCvUrl();
-  }, []);
-
-  useEffect(() => {
-    // Log trạng thái của cvLink
-    console.log("cvLink:", cvLink);
-  }, [cvLink]); // Đảm bảo rằng cvLink đã được cập nhật
 
   return (
     <section
@@ -132,7 +110,7 @@ const HomeSection: React.FC = () => {
         {/* Box 2: Buttons Section (2/5 width) */}
         <div className="w-2/5 rounded-4xl p-4 shadow-gray-400 shadow-lg border-charcoal border-2 bg-white flex flex-col justify-center items-center gap-4 hover-lift">
           <a
-            href={cvLink}
+            href={data}
             download
             className="bg-charcoal text-white font-semibold px-6 py-2 rounded-xl shadow hover:bg-gray-800 transition"
           >

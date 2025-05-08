@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import daImg from "../../assets/qrcode.svg";
 import {
   GitHub,
@@ -9,15 +9,11 @@ import {
   Email,
   X,
 } from "@mui/icons-material";
-import { getContacts } from "../../services/contactService";
+import { Contact } from "../../types/ContactType";
 
-type ContactItem = {
-  id: number;
-  type: string;
-  label: string;
-  url: string;
-  icon: string;
-};
+interface ContactSectionProps {
+  data: Contact[];
+}
 
 const getIconComponent = (type: string) => {
   switch (type.toLowerCase()) {
@@ -40,16 +36,9 @@ const getIconComponent = (type: string) => {
   }
 };
 
-const ContactPart: React.FC = () => {
-  const [contacts, setContacts] = useState<ContactItem[]>([]);
-  const emailContact = contacts.find((c) => c.type.toLowerCase() === "email");
-  const githubContact = contacts.find((c) => c.type.toLowerCase() === "github");
-
-  useEffect(() => {
-    getContacts()
-      .then((data) => setContacts(data))
-      .catch((err) => console.error("Error fetching contact data", err));
-  }, []);
+const ContactSection: React.FC<ContactSectionProps> = ({ data }) => {
+  const emailContact = data.find((c) => c.type.toLowerCase() === "email");
+  const githubContact = data.find((c) => c.type.toLowerCase() === "github");
 
   return (
     <section className="w-full mx-auto px-4">
@@ -73,7 +62,7 @@ const ContactPart: React.FC = () => {
 
         {/* Social Icons */}
         <div className="flex flex-col gap-1 bg-charcoal p-2 py-6 rounded-4xl w-1/10 shadow-gray-600 shadow-lg  mb-5 hover-lift pt-5 pb-5">
-          {contacts.map((item) => (
+          {data.map((item) => (
             <a
               key={item.id}
               href={item.url}
@@ -92,4 +81,4 @@ const ContactPart: React.FC = () => {
   );
 };
 
-export default ContactPart;
+export default ContactSection;

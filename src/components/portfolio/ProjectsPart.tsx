@@ -1,41 +1,24 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import IconButton from "@mui/material/IconButton";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import WebAssetIcon from "@mui/icons-material/WebAsset";
-import { getProjects } from "../../services/projectService";
+import { Project } from "../../types/ProjectType";
 
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-  techStack: string;
-  githubUrl: string;
-  liveUrl: string;
-  imageUrl: string;
-  createdAt: string;
-  projectType: string;
+interface ProjectSectionProps {
+  data: Project[];
 }
 
-const ProjectsPart: React.FC = () => {
+const ProjectSection: React.FC<ProjectSectionProps> = ({ data }) => {
   const scrollRef = useRef(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [projects, setProjects] = useState<Project[]>([]);
-  const total = projects.length;
-  const personalCount = projects.filter(
-    (p) => p.projectType === "Personal"
-  ).length;
-  const collabCount = projects.filter(
+
+  const total = data.length;
+  const personalCount = data.filter((p) => p.projectType === "Personal").length;
+  const collabCount = data.filter(
     (p) => p.projectType === "Collaborate"
   ).length;
-
-  // Fetch từ API
-  useEffect(() => {
-    getProjects()
-      .then((data) => setProjects(data))
-      .catch((err) => console.error("Lỗi fetch dự án:", err));
-  }, []);
 
   // Cuộn đến project theo index
   const scrollToIndex = (index: number) => {
@@ -51,13 +34,13 @@ const ProjectsPart: React.FC = () => {
 
   // Scroll trái
   const scrollLeft = () => {
-    const newIndex = currentIndex > 0 ? currentIndex - 1 : projects.length - 1;
+    const newIndex = currentIndex > 0 ? currentIndex - 1 : data.length - 1;
     scrollToIndex(newIndex);
   };
 
   // Scroll phải
   const scrollRight = () => {
-    const newIndex = currentIndex < projects.length - 1 ? currentIndex + 1 : 0;
+    const newIndex = currentIndex < data.length - 1 ? currentIndex + 1 : 0;
     scrollToIndex(newIndex);
   };
 
@@ -107,7 +90,7 @@ const ProjectsPart: React.FC = () => {
           className="w-[80%] overflow-x-auto flex space-x-6 hide-scrollbar scroll-smooth"
           style={{ overflowY: "hidden" }}
         >
-          {projects.map((project, index) => (
+          {data.map((project, index) => (
             <div
               key={project.title}
               ref={(el) => {
@@ -186,4 +169,4 @@ const ProjectsPart: React.FC = () => {
   );
 };
 
-export default ProjectsPart;
+export default ProjectSection;

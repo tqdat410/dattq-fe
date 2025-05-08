@@ -1,21 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import daImg from "../../assets/da.png";
-import { getCertifications } from "../../services/certificationService";
+import { Certification } from "../../types/CertificationType";
 
-type Certification = {
-  title: string;
-  credentialUrl: string;
-};
+interface AboutSectionProps {
+  data: Certification[];
+}
 
-const About: React.FC = () => {
-  const [certifications, setCertifications] = useState<Certification[]>([]);
-
-  useEffect(() => {
-    getCertifications()
-      .then((data) => setCertifications(data))
-      .catch((err) => console.error("Failed to fetch certifications", err));
-  }, []);
-
+const AboutSection: React.FC<AboutSectionProps> = ({ data }) => {
   return (
     <div className="grid grid-cols-4 gap-6 rounded-4xl text-white items-center">
       {/* Row 1: Avatar + Title */}
@@ -50,7 +41,7 @@ const About: React.FC = () => {
           Certifications
         </h3>
         <ul className="space-y-2 text-gray-200 text-lg w-full overflow-y-auto h-[90%] hide-scrollbar">
-          {certifications.map((cert, index) => (
+          {data.map((cert, index) => (
             <li key={index}>
               <a
                 href={cert.credentialUrl}
@@ -101,4 +92,4 @@ const About: React.FC = () => {
   );
 };
 
-export default About;
+export default AboutSection;
