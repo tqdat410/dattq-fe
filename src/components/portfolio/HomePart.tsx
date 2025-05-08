@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import daImg from "../../assets/bamboo tree-bro.png";
-import YouTubeIcon from "@mui/icons-material/YouTube";
 import DownloadIcon from "@mui/icons-material/Download";
 import PhoneCallbackIcon from "@mui/icons-material/PhoneCallback";
 import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
