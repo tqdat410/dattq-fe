@@ -84,7 +84,6 @@ const HomeSection: React.FC = () => {
                 <button onClick={() => setShowLogin(true)}>
                   <SettingsRoundedIcon sx={{ fontSize: 60, color: "Gray" }} />
                 </button>
-                <span className="text-white text-1xl">#@$#%&</span>
               </div>
             </div>
 
@@ -98,20 +97,18 @@ const HomeSection: React.FC = () => {
               >
                 <SettingsRoundedIcon sx={{ fontSize: 60, color: "Gray" }} />
               </Link>
-              <span className="text-white text-1xl">#@$#%&</span>
             </div>
 
             <div className="flex flex-col items-center">
               <Link
-                href="https://www.youtube.com/"
+                href=""
                 target="_blank"
                 rel="noopener noreferrer"
                 underline="none"
-                className="bg-white rounded-2xl"
+                className="rounded-2xl"
               >
-                <YouTubeIcon sx={{ fontSize: 60, color: "#e53935" }} />
+                <SettingsRoundedIcon sx={{ fontSize: 60, color: "Gray" }} />
               </Link>
-              <span className="text-white text-1xl">DaAgent</span>
             </div>
           </div>
         </div>
