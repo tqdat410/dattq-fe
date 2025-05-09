@@ -37,8 +37,22 @@ const getIconComponent = (type: string) => {
 };
 
 const ContactSection: React.FC<ContactSectionProps> = ({ data }) => {
+  const preferredOrder = [
+    "email",
+    "github",
+    "linkedin",
+    "facebook",
+    "x",
+    "youtube",
+    "instagram",
+  ];
+
   const emailContact = data.find((c) => c.type.toLowerCase() === "email");
   const githubContact = data.find((c) => c.type.toLowerCase() === "github");
+
+  const orderedData = preferredOrder
+    .map((type) => data.find((d) => d.type.toLowerCase() === type))
+    .filter((item): item is Contact => !!item); // Loại bỏ undefined
 
   return (
     <section className="w-full mx-auto px-4">
@@ -47,7 +61,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ data }) => {
       </div>
 
       <div className="rounded-4xl flex flex-row justify-center items-center overflow-hidden gap-4">
-        {/* Ảnh QR */}
+        {/* QR Image and Info */}
         <div className="pt-5 pb-5">
           <img
             src={daImg}
@@ -60,9 +74,9 @@ const ContactSection: React.FC<ContactSectionProps> = ({ data }) => {
           </div>
         </div>
 
-        {/* Social Icons */}
-        <div className="flex flex-col gap-1 bg-charcoal p-2 py-6 rounded-4xl w-1/10 shadow-gray-600 shadow-lg  mb-5 hover-lift pt-5 pb-5">
-          {data.map((item) => (
+        {/* Social Icons in fixed order */}
+        <div className="flex flex-col gap-1 bg-charcoal p-2 py-6 rounded-4xl w-1/10 shadow-gray-600 shadow-lg mb-5 hover-lift pt-5 pb-5">
+          {orderedData.map((item) => (
             <a
               key={item.id}
               href={item.url}
