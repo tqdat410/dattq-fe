@@ -62,11 +62,11 @@ const SkillPart: React.FC = () => {
             <div className="text-charcoal absolute top-48 left-[7%] md:w-[35%] rounded-4xl rounded-bl-none p-4 shadow-gray-600 shadow-lg border-charcoal bg-white z-10 border-2 hover-lift">
               <div className="flex items-center mb-2 gap-2">
                 <WebIcon className="text-charcoal" fontSize="large" />
-                <h3 className="text-lg font-semibold"> Programing</h3>
+                <h3 className="text-lg font-semibold">Programming</h3>
               </div>
               <ul className=" pl-6 text-base space-y-1">
                 <li>C/C++, Java</li>
-                <li>Html, CSS, JS, TS</li>
+                <li>HTML, CSS, JS, TS</li>
                 <li>ABAP</li>
               </ul>
             </div>
