@@ -4,7 +4,6 @@ import DownloadIcon from "@mui/icons-material/Download";
 import PhoneCallbackIcon from "@mui/icons-material/PhoneCallback";
 import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
 import TuneIcon from "@mui/icons-material/Tune";
-import FilterVintageRoundedIcon from "@mui/icons-material/FilterVintageRounded";
 import { Link } from "@mui/material";
 import LoginPopup from "./LoginPopup";
 import EditModalManager from "./EditModalManager";
