@@ -47,7 +47,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ data }) => {
                 href={cert.credentialUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-green-200 hover:underline text-sm"
+                className="text-white hover:underline text-sm"
               >
                 {cert.title}
               </a>
@@ -62,8 +62,8 @@ const AboutSection: React.FC<AboutSectionProps> = ({ data }) => {
           {/* Khối 1 - chiếm 1/3 */}
           <div className="text-charcoal rounded-4xl p-4 shadow-gray-400 shadow-lg border-charcoal border-2 bg-white flex flex-col justify-center items-center hover-lift">
             <h3 className="text-lg font-bold mb-2">Other Info</h3>
-            <p className="text-base">
-              Basic knowledge of AI automation and business process.
+            <p className="text-base pl-7">
+              Interests: Use & research of AI solutions.
             </p>
           </div>
 
@@ -72,7 +72,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ data }) => {
             <h3 className="text-lg font-bold text-center underline mb-4 tracking-wide text-white">
               Education
             </h3>
-            <ul className="space-y-2 text-gray-200 text-lg pl-4">
+            <ul className="space-y-2 text-white text-lg pl-4">
               <li>
                 <div className="font-semibold">
                   B.S. in Software Engineering - FPT University (2022 - 2026)

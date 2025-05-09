@@ -3,6 +3,8 @@ import daImg from "../../assets/bamboo tree-bro.png";
 import DownloadIcon from "@mui/icons-material/Download";
 import PhoneCallbackIcon from "@mui/icons-material/PhoneCallback";
 import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
+import TuneIcon from "@mui/icons-material/Tune";
+import FilterVintageRoundedIcon from "@mui/icons-material/FilterVintageRounded";
 import { Link } from "@mui/material";
 import LoginPopup from "./LoginPopup";
 import EditModalManager from "./EditModalManager";
@@ -59,7 +61,7 @@ const HomeSection: React.FC<HomeSectionProps> = ({ data }) => {
               {/* Button mở popup */}
               <div className="flex flex-col items-center">
                 <button onClick={() => setShowLogin(true)}>
-                  <SettingsRoundedIcon sx={{ fontSize: 60, color: "Gray" }} />
+                  <TuneIcon sx={{ fontSize: 60, color: "white" }} />
                 </button>
               </div>
             </div>
@@ -72,7 +74,7 @@ const HomeSection: React.FC<HomeSectionProps> = ({ data }) => {
                 underline="none"
                 className="rounded-2xl"
               >
-                <SettingsRoundedIcon sx={{ fontSize: 60, color: "Gray" }} />
+                <SettingsRoundedIcon sx={{ fontSize: 60, color: "gray" }} />
               </Link>
             </div>
 
@@ -84,7 +86,7 @@ const HomeSection: React.FC<HomeSectionProps> = ({ data }) => {
                 underline="none"
                 className="rounded-2xl"
               >
-                <SettingsRoundedIcon sx={{ fontSize: 60, color: "Gray" }} />
+                <SettingsRoundedIcon sx={{ fontSize: 60, color: "gray" }} />
               </Link>
             </div>
           </div>

@@ -55,7 +55,7 @@ const SkillPart: React.FC = () => {
               <ul className="pl-6 text-base space-y-1">
                 <li>Vietnamese (Native)</li>
                 <li>English (Intermediate)</li>
-                <li>Japanese (Basic)</li>
+                <li>{/* Japanese (Basic)8*/}</li>
               </ul>
             </div>
 
